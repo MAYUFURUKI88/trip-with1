@@ -50,7 +50,7 @@
  <%elsif @item.user_item == nil%> 
 <%
 =end%>
-      <%= link_to '旅行に参加!', class:"item-red-btn"%>
+      <%= link_to '旅行に参加!',root_path, class:"item-red-btn"%>
        <%
 =begin%>
  <%end%>  
@@ -71,11 +71,11 @@
         </tr>
         <tr>
           <th class="detail-item">旅行先</th>
-          <td class="detail-value"><%= @plan.message %></td>
+          <td class="detail-value"><%= @plan.trip.name %></td>
         </tr>
         <tr>
           <th class="detail-item">定員</th>
-          <td class="detail-value"><%= @plan.message %></td>
+          <td class="detail-value"><%= @plan.capacity.name %></td>
         </tr>
         <tr>
           <th class="detail-item">締切日</th>

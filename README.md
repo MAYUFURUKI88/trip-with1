@@ -37,7 +37,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :joint
+- has_many :joints
 - has_many :comments
 
 
@@ -53,7 +53,7 @@
 ### Association
 
 - belongs_to :plan
-- has_many :users
+- belongs_to :user
 
 ## comments テーブル
 
