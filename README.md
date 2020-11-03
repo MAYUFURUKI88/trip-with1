@@ -15,7 +15,7 @@
 
 ### Association
 
-- has_many :plans, through :joints
+- has_many :plans
 - has_many :joints
 - has_many :comments
 
@@ -28,7 +28,6 @@
 | first_day       | date       | null: false                    |
 | final_day       | date       | null: false                    |
 | price           | integer    | null: false                    |
-| people_id       | integer    | null: false                    |
 | capacity_id     | integer    | null: false                    |
 | deadline        | date       | null: false                    |
 | message         | text       | null: false                    |
@@ -37,8 +36,8 @@
 
 ### Association
 
-- has_many :users, through :joints
-- has_many :joints
+- belongs_to :user
+- has_one :joint
 - has_many :comments
 
 
@@ -54,7 +53,7 @@
 ### Association
 
 - belongs_to :plan
-- belongs_to :user
+- has_many :users
 
 ## comments テーブル
 
