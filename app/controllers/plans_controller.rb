@@ -1,6 +1,7 @@
 class PlansController < ApplicationController
 
   def index
+    @plans = Plan.all
   end
 
   def new
@@ -14,6 +15,9 @@ class PlansController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   private

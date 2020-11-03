@@ -1,5 +1,5 @@
 <%= form_with(model: @plan, local: true) do |f|%>
-  
+<%= render 'shared/error_messages', model: f.object %>
 
   <div class="field">
     <%= f.label :image, "Planの画像" %><br />
@@ -13,32 +13,32 @@
 
   <div class="field">
     <%= f.label :trip_id, "旅行先" %><br />
-    <%= f.text_area :trip_id, class: :form__text %>
+    <%= f.collection_select(:trip_id, Trip.all, :id, :name, {}, ) %>
   </div>
 
   <div class="field">
     <%= f.label :first_day, "出発日" %><br />
-    <%= f.text_area :first_day, class: :form__text %>
+    <%= f.date_field :first_day, class: :form__text %>
   </div>
 
   <div class="field">
     <%= f.label :final_day, "帰る日" %><br />
-    <%= f.text_area :final_day, class: :form__text %>
+    <%= f.date_field :final_day, class: :form__text %>
   </div>
 
   <div class="field">
     <%= f.label :price, "金額" %><br />
-    <%= f.text_area :price, class: :form__text %>
+    <%= f.text_field :price, class: :form__text %>
   </div>
 
   <div class="field">
     <%= f.label :capacity_id, "定員" %><br />
-    <%= f.text_area :capacity_id, class: :form__text %>
+    <%= f.collection_select(:capacity_id, Capacity.all, :id, :name, {}, ) %>
   </div>
 
   <div class="field">
     <%= f.label :deadline, "受付終了日" %><br />
-    <%= f.text_area :deadline, class: :form__text %>
+    <%= f.date_field :deadline, class: :form__text %>
   </div>
 
   <div class="field">

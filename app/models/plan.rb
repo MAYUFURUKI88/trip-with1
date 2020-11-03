@@ -14,6 +14,5 @@ class Plan < ApplicationRecord
     validates :final_day
     validates :deadline
     validates :message
-    validates :image
   end
 end
