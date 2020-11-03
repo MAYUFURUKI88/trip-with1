@@ -50,4 +50,6 @@ class Trip < ActiveHash::Base
     { id: 48, name: '沖縄県' },
     { id: 49, name: '海外' }
   ]
+  include ActiveHash::Associations
+  has_many :plans
 end

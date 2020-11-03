@@ -1,6 +1,10 @@
 class Plan < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :trip
+  belongs_to :capacity
+  belongs_to :sex
 
   
   with_options numericality: { other_than: 1 } do

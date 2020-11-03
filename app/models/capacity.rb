@@ -11,4 +11,6 @@ class Capacity < ActiveHash::Base
     { id: 9, name: "９人" },
     { id: 10, name: "１０人" }
   ]
+  include ActiveHash::Associations
+  has_many :plans
 end
