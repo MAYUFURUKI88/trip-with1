@@ -1,5 +1,6 @@
 class Plan < ApplicationRecord
   belongs_to :user
+  has_many :joints
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
