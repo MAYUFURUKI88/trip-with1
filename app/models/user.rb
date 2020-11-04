@@ -10,13 +10,12 @@ class User < ApplicationRecord
     validates :password_confirmation
   end
 
-<<<<<<< Updated upstream
+
+         has_many :plans
+
+
          extend ActiveHash::Associations::ActiveRecordExtensions
          belongs_to :sex
-=======
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :sex
 
-  has_many :plans
->>>>>>> Stashed changes
+  
 end
