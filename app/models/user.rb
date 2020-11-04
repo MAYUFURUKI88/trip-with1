@@ -10,8 +10,5 @@ class User < ApplicationRecord
            validates :password_confirmation
          end
 
-         extend ActiveHash::Associations::ActiveRecordExtensions
-         belongs_to :sex
-
          has_many :plans
 end
