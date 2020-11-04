@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :plans
+  has_many :joints
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,6 +14,4 @@ class User < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :sex
-
-  has_many :plans
 end

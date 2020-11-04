@@ -47,7 +47,6 @@
 | ------  | ------     | -----------                       |
 | user    | references | null: false, foreign_key: true    |
 | plan    | references | null: false, foreign_key: true    |
-| message | text       | null: false                       |
 
 
 ### Association
