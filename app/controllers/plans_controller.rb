@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
   def index
     @plans = Plan.all
   end
@@ -18,10 +19,29 @@ class PlansController < ApplicationController
   end
 
   def show
-
     @plan = Plan.find(params[:id])
-
   end
+
+  def edit
+    @plan = Plan.find(params[:id])
+    redirect_to root_path unless current_user.id == @plan.user_id
+  end
+
+  def update
+    @plan = Plan.find(params[:id])
+    if @plan.update(plan_params)
+      redirect_to plan_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    plan = Plan.find(params[:id])
+    plan.destroy
+    redirect_to root_path
+  end
+
 
   private
 
