@@ -1,0 +1,52 @@
+<%= form_with(model: @plan, local: true) do |f|%>
+<%= render 'shared/error_messages', model: f.object %>
+
+  <div class="field">
+    <%= f.label :image, "Planの画像" %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_field :title, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trip_id, "旅行先" %><br />
+    <%= f.collection_select(:trip_id, Trip.all, :id, :name, {}, ) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_day, "出発日" %><br />
+    <%= f.date_field :first_day, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :final_day, "帰る日" %><br />
+    <%= f.date_field :final_day, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "金額" %><br />
+    <%= f.text_field :price, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :capacity_id, "定員" %><br />
+    <%= f.collection_select(:capacity_id, Capacity.all, :id, :name, {}, ) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :deadline, "受付終了日" %><br />
+    <%= f.date_field :deadline, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :message, "メッセージ" %><br />
+    <%= f.text_area :message, class: :form__text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
