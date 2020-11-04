@@ -1,8 +1,8 @@
 class PlansController < ApplicationController
-
   def index
     @plans = Plan.all
   end
+
 
   def new
     @plan = Plan.new
@@ -18,7 +18,10 @@ class PlansController < ApplicationController
   end
 
   def show
+
     @plan = Plan.find(params[:id])
+=======
+
   end
 
   private
@@ -26,4 +29,6 @@ class PlansController < ApplicationController
   def plan_params
     params.require(:plan).permit(:title, :image, :trip_id, :first_day, :final_day, :price, :capacity_id, :deadline, :message).merge(user_id: current_user.id)
   end
+
 end
+

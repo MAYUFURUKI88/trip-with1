@@ -1,4 +1,5 @@
 class Capacity < ActiveHash::Base
+
   self.data =[
     { id: 1, name: "--" },
     { id: 2, name: "２人" },
@@ -13,4 +14,5 @@ class Capacity < ActiveHash::Base
   ]
   include ActiveHash::Associations
   has_many :plans
+
 end
