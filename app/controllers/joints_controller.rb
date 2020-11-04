@@ -6,7 +6,8 @@ class JointsController < ApplicationController
 
 
   def create
-    redirect_to :show
+    @plan = Plan.find(params[:id])
+    redirect_to joint_path(@plan.id)
     end
   end
 
