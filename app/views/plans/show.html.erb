@@ -40,6 +40,7 @@
          <%= link_to '企画の編集', edit_plan_path , method: :get, class: "item-blue-btn" %>
          <p class='or-text'>or</p>
          <%= link_to '削除', plan_path, method: :delete, class:'item-destroy' %> 
+         <%= link_to 'チャットページ', new_plan_message_path(@plan.id), method: :get, class: "item-green-btn" %>
  <% end %>
    
     

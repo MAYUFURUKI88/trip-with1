@@ -6,10 +6,9 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(text: params[:message][:text])
+    @message = Message.new(text: params[:text])
     if @message.save
       ActionCable.server.broadcast 'message_channel', content: @message
     end
-    binding.pry
   end
 end
