@@ -43,8 +43,8 @@
       </h2>
       <div class="user__card">
      <% @joints.each do |joint| %>
-  <%= render partial: "plans/jointplan", plan: joint.plan %>
-<% end %>
+          <%= render "plans/jointplan", plan: joint.plan %>
+        <% end %>
       </div>
       
     </div>
