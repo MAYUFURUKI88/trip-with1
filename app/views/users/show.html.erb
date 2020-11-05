@@ -38,19 +38,15 @@
         <%= render partial: "plans/plan", collection: @plans %>
       </div>
       
-      <%
-=begin%>
- <h2 class="page-heading" style="padding-top: 40px;">
+      <h2 class="page-heading" style="padding-top: 40px;">
         <%= "参加中の旅行"%>
       </h2>
       <div class="user__card">
      <% @joints.each do |joint| %>
-  <%= render partial: "plans/plan", plan: joint.plan %>
+  <%= render partial: "plans/jointplan", plan: joint.plan %>
 <% end %>
-      </div> 
-<%
-=end%>
-
+      </div>
+      
     </div>
   </div>
 </div>
