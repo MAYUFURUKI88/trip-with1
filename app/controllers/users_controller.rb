@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @plans = @user.plans.all
+    @joints = @user.joints.all
   end
 
   def edit

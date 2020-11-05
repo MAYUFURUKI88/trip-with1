@@ -37,6 +37,12 @@
       <div class="user__card">
         <%= render partial: "plans/plan", collection: @plans %>
       </div>
+      <h2 class="page-heading" style="padding-top: 40px;">
+        <%= "参加中の旅行"%>
+      </h2>
+      <div class="user__card">
+        <%= render partial: "plans/plan", collection: @joints %>
+      </div>
     </div>
   </div>
 </div>
