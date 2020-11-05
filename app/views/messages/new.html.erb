@@ -1,6 +1,6 @@
-<h3>チャットで計画を立てよう！</h3>
+<h3>チャットで計画を立てましょう</h3>
 
-<%= form_with plan_messages_path do |f| %>
+<%= form_with url: plan_messages_path do |f| %>
   <%= f.text_field :text %>
   <%= f.submit '送信' %>
 <% end %>
@@ -9,3 +9,4 @@
     <p><%= message.text %></p>
   <% end %>
 </div>
+
