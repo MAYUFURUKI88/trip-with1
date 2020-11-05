@@ -21,6 +21,7 @@
               <div class="nav__right" style="font-size: 20px;"> 
               <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: :nav__logout %>
               <%= link_to "旅を計画する",new_plan_path, class: :nav__btn %>
+              <%= link_to current_user.nickname, user_path(current_user.id),class: :nav__logout %>
               </div>
           <%# // ログインしているときは上記を表示する %>
           <%# ログインしていないときは以下を表示する%>

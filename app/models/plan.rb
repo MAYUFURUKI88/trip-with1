@@ -8,14 +8,9 @@ class Plan < ApplicationRecord
   belongs_to :capacity
   belongs_to :sex
 
-  
   with_options numericality: { other_than: 1 } do
-  validates :trip_id
-  validates :capacity_id
-
-
-  
-
+    validates :trip_id
+    validates :capacity_id
   end
   with_options presence: true do
     validates :title
@@ -25,7 +20,4 @@ class Plan < ApplicationRecord
     validates :deadline
     validates :message
   end
-
 end
-
-

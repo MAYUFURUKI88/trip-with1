@@ -1,0 +1,42 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "プロフィール"%>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">ニックネーム</th>
+            <td class="table__col2"><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">メールアドレス</th>
+            <td class="table__col2"><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">性別</th>
+            <td class="table__col2"><%= @user.sex.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">年齢</th>
+            <td class="table__col2"><%= @user.age.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">住所</th>
+            <td class="table__col2"><%= @user.prefecture.name %></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <%= link_to 'プロフィールの編集', edit_user_path , method: :get, class: "item-blue-btn" %>
+
+      <h2 class="page-heading" style="padding-top: 40px;">
+        <%= "企画中の旅行"%>
+      </h2>
+      <div class="user__card">
+        <%= render partial: "plans/plan", collection: @plans %>
+      </div>
+    </div>
+  </div>
+</div>

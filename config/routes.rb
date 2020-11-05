@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :plans do
     resource :joints, only: [:show, :create]
   end
+  resources :users, only: [:show, :edit,:update]
 end

@@ -47,6 +47,11 @@
       <%= link_to '旅行に参加!',plan_joints_path(@plan.id), method: :post,data: {confirm: '旅行に参加しますか？' }, class:"item-blue-btn"%>
       
   <% end %>
+
+  <% unless user_signed_in? %>
+  ※旅行に参加するにはログインが必要です
+  <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
+  <%end%>
       
 
 
