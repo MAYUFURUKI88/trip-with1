@@ -44,7 +44,7 @@
    
     
    <% if user_signed_in? && current_user.id != @plan.user_id %>
-      <%= link_to '旅行に参加!',plan_joints_path(@plan.id), method: :post, class:"item-blue-btn"%>
+      <%= link_to '旅行に参加!',plan_joints_path(@plan.id), method: :post,data: {confirm: '旅行に参加しますか？' }, class:"item-blue-btn"%>
       
   <% end %>
       
@@ -80,3 +80,4 @@
         </tr>
       </tbody>
     </table>
+    
