@@ -1,0 +1,11 @@
+<h3>チャットで計画を立てよう！</h3>
+
+<%= form_with plan_messages_path do |f| %>
+  <%= f.text_field :text %>
+  <%= f.submit '送信' %>
+<% end %>
+<div id='messages'>
+  <% @messages.reverse_each do |message| %>
+    <p><%= message.text %></p>
+  <% end %>
+</div>

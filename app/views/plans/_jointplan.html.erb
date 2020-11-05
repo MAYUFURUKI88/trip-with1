@@ -1,7 +1,7 @@
 <div class="card">
-  <%= link_to image_tag(plan.image, class: :card__img ), plan_joints_path(plan.id)%>
+  <%= link_to image_tag(plan.image, class: :card__img ), new_plan_message_path(plan.id)%>
   <div class="card__body">
-    <%= link_to plan.title, plan_joints_path(plan.id), class: :card__title%>
+    <%= link_to plan.title, new_plan_message_path(plan.id), class: :card__title%>
     <%= link_to plan.trip.name, root_path, class: :card__user %>
   </div>
 </div>
