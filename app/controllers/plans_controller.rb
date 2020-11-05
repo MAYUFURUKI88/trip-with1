@@ -4,7 +4,6 @@ class PlansController < ApplicationController
     @plans = Plan.all
   end
 
-
   def new
     @plan = Plan.new
   end
@@ -42,12 +41,9 @@ class PlansController < ApplicationController
     redirect_to root_path
   end
 
-
   private
 
   def plan_params
     params.require(:plan).permit(:title, :image, :trip_id, :first_day, :final_day, :price, :capacity_id, :deadline, :message).merge(user_id: current_user.id)
   end
-
 end
-

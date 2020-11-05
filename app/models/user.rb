@@ -14,4 +14,6 @@ class User < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :sex
+  belongs_to :age
+  belongs_to :prefecture
 end
