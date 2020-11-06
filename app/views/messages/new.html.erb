@@ -1,4 +1,8 @@
-<h3>チャットで計画を立てましょう</h3>
+<h2 class="page-heading">
+        <%= @plan.message %>
+      </h2>
+
+<h3>まずはチャットで挨拶してみましょう！</h3>
 
 <%= form_with url: plan_messages_path, local: true do |f| %>
   <%= f.text_field :text %>
@@ -10,9 +14,7 @@
   <% end %>
 </div>
 
-<div class="item-explain-box">
-      <span><%= @plan.message %></span>
-    </div>
+
     <table class="detail-table">
       <tbody>
         <tr>
