@@ -1,7 +1,4 @@
 class JointsController < ApplicationController
-  def show
-  end
-
   def create
     @plan = Plan.find(params[:plan_id])
     if Joint.find_by(user_id: current_user.id, plan_id: @plan.id)
