@@ -44,8 +44,12 @@ ActiveRecord::Schema.define(version: 2020_11_05_105511) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text"
+    t.bigint "user_id"
+    t.bigint "plan_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["plan_id"], name: "index_messages_on_plan_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,5 +86,7 @@ ActiveRecord::Schema.define(version: 2020_11_05_105511) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "joints", "plans"
   add_foreign_key "joints", "users"
+  add_foreign_key "messages", "plans"
+  add_foreign_key "messages", "users"
   add_foreign_key "plans", "users"
 end

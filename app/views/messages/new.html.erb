@@ -6,7 +6,7 @@
 <% end %>
 <div id='messages'>
   <% @messages.reverse_each do |message| %>
-    <p><%= current_user.nickname %>：<%= message.text %></p>
+    <p><%= message.user.nickname %>：<%= message.text %></p>
   <% end %>
 </div>
 

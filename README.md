@@ -67,3 +67,11 @@
 
 - belongs_to :user
 - belongs_to :plan
+
+## messages テーブル
+
+| Column  | Type       | Options                           |
+| ------  | ------     | -----------                       |
+| text    | text       | null: false                       |
+| user    | references | null: false, foreign_key: true    |
+| plan    | references | null: false, foreign_key: true    |
