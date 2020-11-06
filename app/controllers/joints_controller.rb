@@ -5,7 +5,7 @@ class JointsController < ApplicationController
       render 'plans/show'
     else
       Joint.create(user_id: current_user.id, plan_id: @plan.id)
-      redirect_to plan_joints_path
+      redirect_to new_plan_message_path
     end
   end
 end
