@@ -1,5 +1,11 @@
 class Plan < ApplicationRecord
+<<<<<<< Updated upstream
   belongs_to :user
+=======
+  has_many :joints
+  has_many :users, through: :joints
+  has_many :messages
+>>>>>>> Stashed changes
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions

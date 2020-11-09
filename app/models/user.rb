@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+<<<<<<< Updated upstream
+=======
+  has_many :joints
+  has_many :plans, through: :joints
+  has_many :messages
+>>>>>>> Stashed changes
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
