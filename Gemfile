@@ -70,3 +70,6 @@ group :development do
   gem 'rubocop', require: false
 end
 
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
