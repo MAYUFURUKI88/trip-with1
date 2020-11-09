@@ -1,5 +1,4 @@
 class Trip < ActiveHash::Base
-
   self.data = [
 
     { id: 1, name: '--' },
@@ -55,5 +54,4 @@ class Trip < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :plans
-
 end

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  get 'messages/new'
   devise_for :users
   root to: "plans#index"
-  resources :plans, only: [:index, :new, :create, :show]
+  resources :plans do
+    resource :joints, only: :create 
+    resources :messages, only: [:new, :create]
+  end
+  resources :users, only: [:show, :edit,:update]
 end

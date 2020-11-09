@@ -50,14 +50,25 @@
 }
 
 
-.item-red-btn {
+.item-blue-btn {
   text-align: center;
-  background-color: #ea352d;
+  background-color: skyblue;
   font-size: 24px;
   font-weight: bold;
   color: #FFF;
   margin: 20px 0px;
   padding: 2vh 10vw;
+}
+
+.item-green-btn {
+  text-align: center;
+  background-color: #ff6633;
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 20px 0px;
+  padding: 2vh 8vw;
+  border-radius: 10px;
 }
 
 .or-text {

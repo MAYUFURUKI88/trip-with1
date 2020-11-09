@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_many :joints
   has_many :plans, through: :joints
   has_many :messages
@@ -14,10 +15,12 @@ class User < ApplicationRecord
   end
 
 
-         extend ActiveHash::Associations::ActiveRecordExtensions
-         belongs_to :sex
-         belongs_to :age
-         belongs_to :prefecture
 
   
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :sex
+  belongs_to :age
+  belongs_to :prefecture
+
 end

@@ -12,20 +12,21 @@
   <body>
   <header class="header">
       <div class="inner">
-        <div class="nav">
+        <div class="nav" style="align-items: center;">
           <div class="nav__left">
             <%= link_to image_tag("Trip.png", class: :logo), root_path %>
           </div>
           <%# ログインしているときは以下を表示する%>
           <% if user_signed_in? %>
-              <div class="nav__right"> 
+              <div class="nav__right" style="font-size: 20px;"> 
               <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: :nav__logout %>
-              <%= link_to "New Trip",new_plan_path, class: :nav__btn %>
+              <%= link_to "旅を計画する",new_plan_path, class: :nav__btn %>
+              <%= link_to current_user.nickname, user_path(current_user.id),class: :nav__logout %>
               </div>
           <%# // ログインしているときは上記を表示する %>
           <%# ログインしていないときは以下を表示する%>
           <% else %>
-            <div class="nav__right">
+            <div class="nav__right" style="font-size: 20px;"> 
               <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
             </div>

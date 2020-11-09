@@ -1,0 +1,43 @@
+<h2 class="page-heading">
+        <%= @plan.message %>
+      </h2>
+
+<h3>まずはチャットで挨拶してみましょう！</h3>
+
+<%= form_with url: plan_messages_path, local: true do |f| %>
+  <%= f.text_field :text %>
+  <%= f.submit '送信' %>
+<% end %>
+
+<div id='messages'>
+  <% @messages.reverse_each do |message| %>
+    <p><%= message.user.nickname %>：<%= message.text %></p>
+  <% end %>
+</div>
+
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">企画者</th>
+          <td class="detail-value"><%= @plan.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">旅行先</th>
+          <td class="detail-value"><%= @plan.trip.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">定員</th>
+          <td class="detail-value"><%= @plan.capacity.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">締切日</th>
+          <td class="detail-value"><%= @plan.deadline %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">予算</th>
+          <td class="detail-value"><%= @plan.price %></td>
+        </tr>
+      </tbody>
+    </table>
+

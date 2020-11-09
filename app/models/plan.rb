@@ -1,4 +1,5 @@
 class Plan < ApplicationRecord
+
   has_many :joints
   has_many :users, through: :joints
   has_many :messages
@@ -10,14 +11,9 @@ class Plan < ApplicationRecord
   belongs_to :sex
   belongs_to :user
 
-  
   with_options numericality: { other_than: 1 } do
-  validates :trip_id
-  validates :capacity_id
-
-
-  
-
+    validates :trip_id
+    validates :capacity_id
   end
   with_options presence: true do
     validates :title
@@ -27,7 +23,4 @@ class Plan < ApplicationRecord
     validates :deadline
     validates :message
   end
-
 end
-
-
