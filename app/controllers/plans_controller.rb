@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :move_to_index,except: [:index, :show]
   def index
     @plans = Plan.all
   end
@@ -48,4 +49,11 @@ class PlansController < ApplicationController
   def plan_params
     params.require(:plan).permit(:title, :image, :trip_id, :first_day, :final_day, :price, :capacity_id, :deadline, :message).merge(user_id: current_user.id)
   end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
+
 end
