@@ -8,7 +8,7 @@ class Plan < ApplicationRecord
   belongs_to :trip
   belongs_to :capacity
   belongs_to :sex
-  
+  belongs_to :user
 
   
   with_options numericality: { other_than: 1 } do

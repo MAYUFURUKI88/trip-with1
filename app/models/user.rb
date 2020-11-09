@@ -14,11 +14,10 @@ class User < ApplicationRecord
   end
 
 
-         has_many :plans
-
-
          extend ActiveHash::Associations::ActiveRecordExtensions
          belongs_to :sex
+         belongs_to :age
+         belongs_to :prefecture
 
   
 end
