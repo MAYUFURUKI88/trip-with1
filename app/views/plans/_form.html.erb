@@ -4,6 +4,7 @@
   <div class="field">
     <%= f.label :image, "Planの画像" %><br />
     <%= f.file_field :image %>
+    <div id="image-list"></div>
   </div>
 
   <div class="field">
@@ -48,5 +49,6 @@
 
   <div class="actions">
     <%= f.submit "保存する", class: :form__btn  %>
+    
   </div>
 <% end %>
