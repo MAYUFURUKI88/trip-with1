@@ -3,6 +3,8 @@
     <div class='account-page__inner--left account-page__header'>
       <h2>Create Account</h2>
       <h5>新規アカウントの作成</h5>
+      <h5><%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post,class: :nav__logout%></h5>
+<h5><%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post,class: :nav__logout%></h5>
     </div>
     <div class='account-page__inner--right user-form'>
       
@@ -26,6 +28,10 @@
             <%= f.email_field :email%>
           </div>
         </div>
+
+<%if @sns_id.present? %>
+<%= hidden_field_tag :sns_auth, true %>
+<% else %>
         <div class='field'>
           <div class='field-label'>
             <%= f.label :password%>
@@ -43,10 +49,12 @@
             <%= f.password_field :password_confirmation, autocomplete: "off"%>
           </div>
         </div>
+        <% end %>
+
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :sex_id%>
+            <%= f.label "性別"%>
           </div>
           <div class='field-input'>
             <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box"}) %>
@@ -55,7 +63,7 @@
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :age_id%>
+            <%= f.label "年齢"%>
           </div>
           <div class='field-input'>
             <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"select-box"}) %>
@@ -64,7 +72,7 @@
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :prefecture_id%>
+            <%= f.label "住所"%>
           </div>
           <div class='field-input'>
             <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box"}) %>

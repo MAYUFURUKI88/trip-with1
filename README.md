@@ -33,10 +33,8 @@ trip-with1
 マイページ機能(プロフィール編集)  
 
 # 実装予定の機能
-詳細ページに参加中人数の表示  
 検索機能  
-SNSログイン,登録  
-プレビュー機能  
+SNSログイン,登録   
 ページネーション機能  
 受付終了の表示  
 ウィザード形式でのステップ登録  
@@ -127,3 +125,13 @@ Ruby6.0.0
 | text    | text       | null: false                       |
 | user    | references | null: false, foreign_key: true    |
 | plan    | references | null: false, foreign_key: true    |
+
+## sns_credentials テーブル
+
+| Column   | Type       | Options           |
+| ------   | ------     | -----------       |
+| provider | string     |                   |
+| uid      | string     |                   |
+| user     | references | foreign_key: true |
+
+

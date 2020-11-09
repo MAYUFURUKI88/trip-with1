@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_105511) do
+ActiveRecord::Schema.define(version: 2020_11_09_075955) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2020_11_05_105511) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.bigint "user_id"
+    t.bigint "plan_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plan_id"], name: "index_comments_on_plan_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "joints", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "plan_id"
@@ -43,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_11_05_105511) do
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "text"
+    t.text "text", null: false
     t.bigint "user_id"
     t.bigint "plan_id"
     t.datetime "created_at", precision: 6, null: false
@@ -67,6 +77,15 @@ ActiveRecord::Schema.define(version: 2020_11_05_105511) do
     t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -84,9 +103,12 @@ ActiveRecord::Schema.define(version: 2020_11_05_105511) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "plans"
+  add_foreign_key "comments", "users"
   add_foreign_key "joints", "plans"
   add_foreign_key "joints", "users"
   add_foreign_key "messages", "plans"
   add_foreign_key "messages", "users"
   add_foreign_key "plans", "users"
+  add_foreign_key "sns_credentials", "users"
 end
