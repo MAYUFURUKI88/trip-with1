@@ -1,6 +1,7 @@
 class Plan < ApplicationRecord
-  belongs_to :user
+
   has_many :joints
+  has_many :users, through: :joints
   has_many :messages
   has_one_attached :image
 
@@ -8,6 +9,7 @@ class Plan < ApplicationRecord
   belongs_to :trip
   belongs_to :capacity
   belongs_to :sex
+  belongs_to :user
 
   with_options numericality: { other_than: 1 } do
     validates :trip_id

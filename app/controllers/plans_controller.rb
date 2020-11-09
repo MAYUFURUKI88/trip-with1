@@ -23,8 +23,10 @@ class PlansController < ApplicationController
 
   def edit
     @plan = Plan.find(params[:id])
+
     redirect_to root_path unless current_user.id == @plan.user_id
   end
+
 
   def update
     @plan = Plan.find(params[:id])
