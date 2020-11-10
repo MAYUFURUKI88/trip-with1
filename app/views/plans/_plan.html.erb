@@ -1,7 +1,13 @@
 <div class="card">
   <%= link_to image_tag(plan.image, class: :card__img ), plan_path(plan.id)%>
+    <% if plan.deadline <= Date.today || plan.capacity_id <= plan.users.size %>
+      <div class='sold-out'>
+        <span>close!!</span>
+      </div>
+     <% end %>
   <div class="card__body">
     <%= link_to plan.title, plan_path(plan.id), class: :card__title%>
     <%= link_to plan.trip.name, root_path, class: :card__user %>
   </div>
 </div>
+

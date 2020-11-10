@@ -22,7 +22,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates :password, format: { with: VALID_PASSWORD_REGEX },length: {minimum: 6 }
+  validates :password, format: { with: VALID_PASSWORD_REGEX }, length: { minimum: 6 }
   with_options presence: true do
     validates :nickname
     validates :password_confirmation

@@ -23,4 +23,12 @@ class Plan < ApplicationRecord
     validates :message
     validates :image
   end
+
+  def self.search(search)
+    if search != ""
+      Plan.where("message LIKE(?)", "%#{search}%")
+    else
+      Plan.all
+    end
+  end
 end

@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
   def index
     @plans = Plan.all.page(params[:page]).per(6)
   end
@@ -41,6 +41,10 @@ class PlansController < ApplicationController
     plan = Plan.find(params[:id])
     plan.destroy
     redirect_to root_path
+  end
+
+  def search
+    @plans = Plan.search(params[:keyword])
   end
 
   private
