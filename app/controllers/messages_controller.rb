@@ -6,9 +6,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(text: params[:text],plan_id: params[:plan_id],user_id: current_user.id)
-    if @message.save
-      ActionCable.server.broadcast 'message_channel', content: @message
-    end
+    @message = Message.new(text: params[:text], plan_id: params[:plan_id], user_id: current_user.id)
+    ActionCable.server.broadcast 'message_channel', content: @message if @message.save
   end
 end

@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :move_to_index,except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show]
   def index
     @plans = Plan.all
   end
@@ -28,7 +28,6 @@ class PlansController < ApplicationController
     redirect_to root_path unless current_user.id == @plan.user_id
   end
 
-
   def update
     @plan = Plan.find(params[:id])
     if @plan.update(plan_params)
@@ -51,9 +50,6 @@ class PlansController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
-
 end

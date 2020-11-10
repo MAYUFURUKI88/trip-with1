@@ -1,8 +1,7 @@
 class Plan < ApplicationRecord
-
-  has_many :joints
+  has_many :joints, dependent: :destroy
   has_many :users, through: :joints
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
