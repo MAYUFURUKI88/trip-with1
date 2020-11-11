@@ -8,20 +8,11 @@
     <div class='item-img-content'>
       <%= image_tag @plan.image ,class:"item-box-img" %>
       
-      <%
-=begin%>
- <% if @pran.user_item.present? %>
+     <% if @plan.deadline <= Date.today || @plan.capacity_id <= @plan.users.size %>
       <div class='sold-out'>
-        <span>Sold Out!!</span>
+        <span>close!!</span>
       </div>
-      <% end %> 
-<%
-=end%>
-<%
-=begin%>
- 受付終了の表示 
-<%
-=end%>
+     <% end %>
       
     </div>
 
