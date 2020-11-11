@@ -1,9 +1,15 @@
 class User < ApplicationRecord
-  has_many :plans
+  has_many :plans, dependent: :destroy
   has_many :joints
   has_many :joint_plans, through: :joints, class_name: 'Plan'
   has_many :messages
   has_many :sns_credentials
+  has_many :likes, dependent: :destroy
+  has_many :liked_plans, through: :likes, source: :plan
+
+  def already_liked?(plan)
+    self.likes.exists?(plan_id: plan.id)
+  end
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create

@@ -46,7 +46,13 @@
           <%= render "plans/jointplan", plan: joint.plan %>
         <% end %>
       </div>
-      
+
+      <h2>お気に入りしている投稿</h2>
+      <% @user.liked_plans.each do |plan| %>
+      <%= link_to image_tag(plan.image, class: :card__img ), plan_path(plan.id)%>
+      <%= link_to plan.title, plan_path(plan.id), class: :card__title%>
+    <%= link_to plan.trip.name, search_plans_path(trip_id: plan.trip_id), class: :card__user %>
+      <% end %>
     </div>
   </div>
 </div>
