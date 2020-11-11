@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
   root to: "plans#index"
   resources :plans do
+    resources :likes, only: [:create, :destroy]
     resource :joints, only: :create 
     resources :messages, only: [:new, :create]
     collection do

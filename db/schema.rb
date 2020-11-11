@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_075955) do
+ActiveRecord::Schema.define(version: 2020_11_11_060114) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2020_11_09_075955) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["plan_id"], name: "index_joints_on_plan_id"
     t.index ["user_id"], name: "index_joints_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "plan_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plan_id"], name: "index_likes_on_plan_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -107,6 +116,8 @@ ActiveRecord::Schema.define(version: 2020_11_09_075955) do
   add_foreign_key "comments", "users"
   add_foreign_key "joints", "plans"
   add_foreign_key "joints", "users"
+  add_foreign_key "likes", "plans"
+  add_foreign_key "likes", "users"
   add_foreign_key "messages", "plans"
   add_foreign_key "messages", "users"
   add_foreign_key "plans", "users"
