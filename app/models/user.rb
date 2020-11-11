@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :liked_plans, through: :likes, source: :plan
 
   def already_liked?(plan)
-    self.likes.exists?(plan_id: plan.id)
+    likes.exists?(plan_id: plan.id)
   end
 
   def self.from_omniauth(auth)
