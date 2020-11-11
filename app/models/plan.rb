@@ -26,7 +26,15 @@ class Plan < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Plan.where("message LIKE(?)", "%#{search}%")
+      where("message LIKE(?)", "%#{search}%")
+    else
+      Plan.all
+    end
+  end
+
+  def self.filter_trip(trip_id)
+    if trip_id
+    where(trip_id: trip_id )
     else
       Plan.all
     end

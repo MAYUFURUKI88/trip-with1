@@ -44,7 +44,7 @@ class PlansController < ApplicationController
   end
 
   def search
-    @plans = Plan.search(params[:keyword])
+    @plans = Plan.search(params[:keyword]).filter_trip(params[:trip_id])
   end
 
   private
