@@ -34,6 +34,7 @@ trip-with1
 検索機能  
 ページネーション機能  
 お気に入り機能  
+SNSログイン  
 
 # 実装予定の機能
 通知機能  
@@ -64,7 +65,11 @@ Ruby6.0.0
 
 - has_many :plans
 - has_many :joints
-- has_many :comments
+- has_many :joint_plans, through: :joints, class_name :"Plan"
+- has_many :messages
+- has_many :sns_credentials
+- has_many :likes
+- has_many :liked_plans, through :likes, source: :plan
 
 ## plans テーブル
 
@@ -83,9 +88,11 @@ Ruby6.0.0
 
 ### Association
 
-- belongs_to :user
 - has_many :joints
-- has_many :comments
+- has_many :users, through: :joints
+- has_many :messages
+- has_many :likes
+- has_many :liked_users, through: :likes, source: :user
 
 
 ## joints テーブル
@@ -101,13 +108,12 @@ Ruby6.0.0
 - belongs_to :plan
 - belongs_to :user
 
-## comments テーブル
+## likes テーブル
 
 | Column  | Type       | Options                           |
 | ------  | ------     | -----------                       |
 | user    | references | null: false, foreign_key: true    |
 | plan    | references | null: false, foreign_key: true    |
-| content | text       | null: false                       |
 
 ### Association
 
@@ -123,6 +129,11 @@ Ruby6.0.0
 | user    | references | null: false, foreign_key: true    |
 | plan    | references | null: false, foreign_key: true    |
 
+### Association
+
+- belongs_to :user
+- belongs_to :plan 
+
 ## sns_credentials テーブル
 
 | Column   | Type       | Options           |
@@ -130,5 +141,9 @@ Ruby6.0.0
 | provider | string     |                   |
 | uid      | string     |                   |
 | user     | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
 
 
