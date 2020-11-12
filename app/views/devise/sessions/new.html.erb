@@ -3,8 +3,8 @@
     <div class='account-page__inner--left account-page__header'>
       <h2>Log in</h2>
       <h5>登録しているユーザーでログイン</h5>
-      <h5><%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post,class: :nav__logout%></h5>
-<h5><%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post,class: :nav__logout%></h5>
+      <h5><%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post,class: :api%></h5>
+<h5><%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post,class: :api%></h5>
       <%= render "devise/shared/links"%>
     </div>
     <div class='account-page__inner--right user-form'>
