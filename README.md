@@ -11,7 +11,7 @@ trip-with1
 http://54.150.37.116/
 
 # テスト用アカウント
-email : 12345@gmail.com
+email : 12345@gmail.com  
 password : a12345
 
 # 利用方法
