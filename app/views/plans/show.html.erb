@@ -27,6 +27,7 @@
       </span>
     </div>
 
+<% if user_signed_in? %>
 <h3>お気に入り件数: <%= @plan.likes.count %></h3>
 <% if current_user.already_liked?(@plan) %>
   <%= button_to "お気に入りを取り消す" , plan_like_path(@plan), method: :delete%>
@@ -36,6 +37,7 @@
 <h2>お気に入りしたユーザー</h2>
 <% @plan.liked_users.each do |user| %>
   <li><%= link_to user.nickname %></li>
+<% end %>
 <% end %>
     
   <% if user_signed_in? && current_user.id == @plan.user_id %>
