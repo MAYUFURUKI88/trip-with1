@@ -2,7 +2,7 @@ class PlansController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :move_to_index, except: [:index, :show, :search]
   def index
-    @plans = Plan.all.page(params[:page]).per(6)
+    @plans = Plan.all.order("created_at DESC").page(params[:page]).per(6)
   end
 
   def new
