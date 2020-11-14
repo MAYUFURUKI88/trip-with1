@@ -11,8 +11,16 @@ trip-with1
 http://54.150.37.116/
 
 # テスト用アカウント
+投稿用  
+nickname : furuki  
 email : 12345@gmail.com  
-password : a12345
+password : a12345  
+
+参加用  
+nickname : Mayuu  
+email : 123456@gmail.com  
+password : a123456
+
 
 # 利用方法
 ・トップページの旅を計画するボタン押下→計画情報入力→一覧に投稿した企画が表示  
