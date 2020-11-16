@@ -3,6 +3,8 @@
       </h2>
 
 <h3>まずはチャットで挨拶してみましょう！</h3>
+<%= action_cable_meta_tag %>
+
 
 <%= form_with url: plan_messages_path, local: true do |f| %>
   <%= f.text_field :text, id: 'message_text'%>
