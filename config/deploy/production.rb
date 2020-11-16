@@ -60,4 +60,3 @@
 #     # password: "please use keys"
 #   }
 server '54.150.37.116', user: 'ec2-user', roles: %w{app db web}
-config.action_cable.allowed_request_origins = [ /http:\/\/.*/ ]
