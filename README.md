@@ -8,7 +8,10 @@ trip-with1
 マイページでプロフィールの編集、企画中の旅行、参加中の旅行、お気に入りした旅行を確認できます。
 
 # URL
-http://54.150.37.116/
+AWS  
+http://54.150.37.116/  
+heroku  
+https://trip-with.herokuapp.com/
 
 # テスト用アカウント
 投稿用  
