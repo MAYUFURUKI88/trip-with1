@@ -8,19 +8,17 @@ trip-with1
 マイページでプロフィールの編集、企画中の旅行、参加中の旅行、お気に入りした旅行を確認できます。
 
 # URL
-AWS  
-http://54.150.37.116/  
 heroku  
 https://trip-with.herokuapp.com/
 
 # テスト用アカウント
 投稿用  
-nickname : furuki  
+nickname : Mayuu  
 email : 12345@gmail.com  
 password : a12345  
 
 参加用  
-nickname : Mayuu  
+nickname : furuki  
 email : 123456@gmail.com  
 password : a123456
 
@@ -49,12 +47,10 @@ password : a123456
 ページネーション機能  
 お気に入り機能  
 SNSログイン  
-AWS  
 
 
 # ローカルでの動作方法
 Ruby6.0.0  
-※AWSの場合SNS認証不可、チャット機能に少々不具合が出ています。  HEROKUでは問題なく動きます。
 
 
 
